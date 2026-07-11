@@ -283,3 +283,34 @@ body.welcome-page .welcome-link:hover {
 body.welcome-page .welcome-link {
   transition: transform 220ms ease;
 }
+
+/* ---------- Candle Cursor ---------- */
+
+body.gallery-page,
+body.gallery-page * {
+  cursor: none !important;
+}
+
+.cursor{
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:100px;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    transform:translate(-50%,-90%);
+
+}
+
+.cursor img{
+
+    width:100%;
+    display:block;
+
+}
