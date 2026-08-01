@@ -1,0 +1,431 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+body.detail-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #402b22 0%,
+      #21130f 58%,
+      #120a08 100%
+    );
+
+  font-family: Arial, Helvetica, sans-serif;
+  color: #2e1f19;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+
+  z-index: 100;
+
+  min-width: 190px;
+  padding: 14px 24px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.82);
+  color: #49372f;
+
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    transform 200ms ease,
+    background 200ms ease;
+}
+
+.back-button:hover {
+  transform: translateX(-4px);
+  background: white;
+}
+
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.bakery-layout {
+  width: min(1500px, 94vw);
+  min-height: 100vh;
+
+  margin: 0 auto;
+  padding: 110px 0 70px;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.55fr)
+    minmax(360px, 1fr);
+
+  align-items: start;
+
+  gap: clamp(10px, 1.5vw, 26px);
+}
+
+
+/* =========================
+   LEFT CAKE SECTION
+========================= */
+
+.cake-section {
+  position: relative;
+  min-width: 0;
+
+  padding-top: 75px;
+}
+
+
+/* =========================
+   TABS
+========================= */
+
+.cake-tabs {
+  position: absolute;
+  top: 0;
+  left: 7%;
+  right: 3%;
+
+  z-index: 5;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: end;
+
+  gap: clamp(2px, 0.8vw, 12px);
+}
+
+.tab-button {
+  appearance: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  cursor: pointer;
+
+  transition: transform 180ms ease;
+}
+
+.tab-button:hover {
+  transform: translateY(-7px);
+}
+
+.tab-button img {
+  display: block;
+
+  width: 100%;
+  max-width: 185px;
+  height: auto;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   MAIN FRAME
+========================= */
+
+.cake-frame{
+
+position:absolute;
+
+left:0;
+
+top:120px;
+
+width:920px;
+
+}
+
+.main-frame-image {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  pointer-events: none;
+}
+
+.cake-display-content {
+  position: absolute;
+
+  /*
+    这四个百分比控制内容落在框内的位置。
+    后面放蛋糕时可继续微调。
+  */
+  top: 22%;
+  right: 8%;
+  bottom: 12%;
+  left: 8%;
+
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.temporary-label {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: clamp(22px, 3vw, 48px);
+  font-weight: 700;
+}
+
+
+/* =========================
+   REGISTER SECTION
+========================= */
+
+.cash-register{
+
+position:absolute;
+
+right:60px;
+
+top:140px;
+
+width:470px;
+
+z-index:20;
+
+}
+
+.register-wrap {
+  position: relative;
+
+  width: 100%;
+  max-width: 610px;
+
+  margin: 0;
+}
+
+.register-image {
+  position: relative;
+
+  z-index: 5;
+
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   RECEIPT
+========================= */
+
+.receipt-area {
+  position: absolute;
+
+  /*
+    调整 receipt 从收银机的哪个位置出现
+  */
+  top: 24%;
+  left: 6%;
+
+  z-index: 3;
+
+  width: 77%;
+}
+
+.receipt-stack {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 1 / 1.17;
+}
+
+.receipt-paper {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+/*
+  Receipt 文字层
+*/
+
+.receipt-content {
+  position: absolute;
+
+  top: 14%;
+  right: 17%;
+  bottom: 17%;
+  left: 14%;
+
+  z-index: 2;
+
+  overflow: hidden;
+
+  color: #17110e;
+  text-align: center;
+}
+
+.receipt-shop-name {
+  margin: 0 0 10px;
+
+  font-size: clamp(9px, 1vw, 15px);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.receipt-divider {
+  width: 100%;
+  margin: 10px 0 18px;
+
+  border-top: 2px dashed #17110e;
+}
+
+.receipt-content h1 {
+  margin: 0 0 18px;
+
+  font-size: clamp(24px, 3vw, 48px);
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.receipt-content p {
+  margin: 9px 0;
+
+  font-size: clamp(11px, 1.25vw, 18px);
+  line-height: 1.4;
+}
+
+
+/*
+  卷纸覆盖在 receipt-stage-3 上面
+*/
+
+.receipt-roll {
+  position: absolute;
+
+  left: 1%;
+  bottom: -1%;
+
+  z-index: 4;
+
+  display: block;
+
+  width: 96%;
+  height: auto;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+  .bakery-layout {
+    width: min(900px, 94vw);
+
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cake-section {
+    padding-top: 70px;
+  }
+
+  .register-section {
+    width: min(520px, 86vw);
+
+    margin: -15px auto 0;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .back-button {
+    top: 14px;
+    left: 14px;
+
+    min-width: 0;
+    padding: 10px 15px;
+
+    font-size: 14px;
+  }
+
+  .bakery-layout {
+    padding-top: 90px;
+  }
+
+  .cake-section {
+    padding-top: 48px;
+  }
+
+  .cake-tabs {
+    left: 3%;
+    right: 1%;
+  }
+
+  .tab-button:hover {
+    transform: none;
+  }
+
+  .temporary-label {
+    font-size: 20px;
+  }
+}
